@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аренда PlayStation 5 в Минске | Прокат PS5 с подпиской PS Plus</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { background-color: #0b081e; color: #f3f4f6; line-height: 1.6; padding: 0; }
+        
+        header { background: rgba(255, 255, 255, 0.03); border-bottom: 1px solid rgba(255, 255, 255, 0.1); width: 100%; }
+        .container { max-w: 1000px; margin: 0 auto; padding: 0 20px; width: 100%; }
+        .nav-box { display: flex; justify-content: space-between; padding: 15px 0; align-items: center; }
+        .logo { font-size: 22px; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 1px; }
+        .logo span { color: #3b82f6; }
+        .tg-top { font-size: 14px; font-weight: 700; color: #60a5fa; text-decoration: none; border: 1px solid rgba(96, 165, 250, 0.3); padding: 6px 12px; border-radius: 8px; background: rgba(96, 165, 250, 0.05); }
+        
+        .hero { display: flex; flex-direction: column; gap: 40px; padding: 40px 0; align-items: center; width: 100%; }
+        @media (min-width: 768px) { .hero { flex-direction: row; justify-content: space-between; align-items: center; } .hero-left { width: 50%; text-align: left; } .hero-right { width: 45%; } }
+        
+        .tag { display: inline-block; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); color: #93c5fd; font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px; text-transform: uppercase; }
+        h1 { font-size: 38px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; color: #fff; }
+        h1 span { color: #60a5fa; }
+        .hero-desc { color: #9ca3af; font-size: 16px; margin-bottom: 30px; }
+        .btn-main { display: inline-block; background: linear-gradient(90deg, #2563eb, #4f46e5); color: #fff; font-weight: 700; padding: 16px 32px; border-radius: 12px; text-decoration: none; text-align: center; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); width: 100%; max-width: 300px; }
+        
+        .card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 24px; text-align: center; width: 100%; max-width: 380px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .card-tag { font-size: 11px; font-weight: 700; color: #60a5fa; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+        .card-title { font-size: 26px; font-weight: 900; color: #fff; margin-bottom: 10px; }
+        .price-main { font-size: 34px; font-weight: 900; color: #fff; margin-bottom: 20px; }
+        .price-main span { font-size: 15px; color: #9ca3af; font-weight: 400; }
+        
+        .list { text-align: left; border-top: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 20px 0; margin-bottom: 25px; list-style: none; }
+        .list li { font-size: 14px; color: #9ca3af; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 8px; }
+        .list li strong { color: #fff; }
+        .btn-white { display: block; background: #fff; color: #111827; font-weight: 700; padding: 14px; border-radius: 12px; text-decoration: none; text-align: center; }
+        
+        .section-title { font-size: 28px; font-weight: 900; text-align: center; padding-top: 60px; margin-bottom: 30px; color: #fff; letter-spacing: 0.5px; width: 100%; }
+        
+        .grid-rates { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; width: 100%; }
+        @media (min-width: 768px) { .grid-rates { flex-direction: row; justify-content: space-between; } .rate-box { width: 31%; } }
+        .rate-box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 30px; border-radius: 20px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; gap: 15px; }
+        .rate-box.hit { border: 1px solid rgba(59, 130, 246, 0.5); background: rgba(59, 130, 246, 0.05); }
+        .rate-label { font-size: 11px; color: #9ca3af; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+        .rate-days { font-size: 22px; font-weight: 900; color: #fff; }
+        .rate-desc { font-size: 13px; color: #6b7280; }
+        .rate-price { font-size: 28px; font-weight: 900; color: #60a5fa; }
+        .rate-price span { font-size: 14px; color: #6b7280; font-weight: 400; }
+        .btn-rate { display: block; background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid rgba(255, 255, 255, 0.15); padding: 12px; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 700; text-align: center; }
+        .rate-box.hit .btn-rate { background: #2563eb; border-color: #2563eb; }
+        
+        .grid-terms { display: flex; flex-direction: column; gap: 25px; margin-bottom: 60px; width: 100%; }
+        @media (min-width: 768px) { .grid-terms { display: grid; grid-template-columns: 1fr 1fr; } }
+        .term-item { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 18px; }
+        .term-item h4 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+        .term-item p { font-size: 14px; color: #9ca3af; line-height: 1.6; }
+        
+        footer { border-top: 1px solid #1f2937; background: #060412; padding: 40px 0; font-size: 13px; color: #6b7280; width: 100%; margin-top: 60px; }
+        .flex-foot { display: flex; flex-direction: column; gap: 20px; text-align: center; }
+        @media (min-width: 768px) { .flex-foot { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; } }
+        footer a { color: #6b7280; text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-box">
+            <a href="#" class="logo">MINSK<span>PS5</span></a>
+            <a href="https://t.me" target="_blank" class="tg-top">💬 Проверить даты</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-left">
+                <div class="tag">🎮 Консоль свободна на эти выходные!</div>
+                <h1>Аренда PlayStation 5 <span>в Минске</span></h1>
+                <p class="hero-desc">Хотите круто провести вечер или устроить баттл с друзьями? Доставлю оригинальную PS5 прямо к вам домой. Всё настроено, вам останется только включить в розетку!</p>
+                <a href="https://t.me" target="_blank" class="btn-main">Забронировать в Telegram</a>
+            </div>
+            
+            <div class="hero-right">
+                <div class="card">
+                    <div class="card-tag">Что входит в комплект</div>
+                    <div class="card-title">Игровая консоль PS5</div>
+                    <div class="price-main">35 BYN <span>/ сутки</span></div>
+                    <ul class="list">
+                        <li>⚡ <span><strong>2 беспроводных геймпада DualSense</strong> (для игры вдвоем)</span></li>
+                        <li>🔥 <span><strong>Подписка PS Plus Extra</strong> (сотни встроенных игр)</span></li>
+                        <li>🎮 <span><strong>Каталог:</strong> Mortal Kombat, EA FC (FIFA), UFC, GTA V, Человек-Паук и др.</span></li>
+                        <li>🚗 <span><strong>Полный комплект:</strong> HDMI, кабель питания, зарядка для джойстиков.</span></li>
+                    </ul>
+                    <a href="https://t.me" target="_blank" class="btn-white">Написать владельцу</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК СТОИМОСТИ -->
+        <h2 class="section-title">Стоимость аренды</h2>
+        <div class="grid-rates">
+            <div class="rate-box">
+                <div>
+                    <div class="rate-label">На один вечер</div>
+                    <div class="rate-days">1 сутки</div>
+                    <div class="rate-desc">Для спонтанной игровой сессии</div>
+                </div>
+                <div>
+                    <div class="rate-price">35 BYN <span>/ день</span></div>
+                    <a href="https://t.me" target="_blank" class="btn-rate">Заказать</a>
+                </div>
+            </div>
+            <div class="rate-box hit">
+                <div>
+                    <div class="rate-label" style="color:#60a5fa">На все выходные</div>
+                    <div class="rate-days">2 суток</div>
+                    <div class="rate-desc" style="color:#9ca3af">Выгодно: 60 BYN за весь срок</div>
+                </div>
+                <div>
+                    <div class="rate-price" style="color:#60a5fa">30 BYN <span>/ день</span></div>
+                    <a href="https://t.me" target="_blank" class="btn-rate">Заказать</a>
+                </div>
+            </div>
+            <div class="rate-box">
+                <div>
+                    <div class="rate-label">Полное погружение</div>
+                    <div class="rate-days">1 неделя</div>
+                    <div class="rate-desc">Максимальная выгода: 140 BYN</div>
+                </div>
+                <div>
+                    <div class="rate-price">20 BYN <span>/ день</span></div>
+                    <a href="https://t.me" target="_blank" class="btn-rate">Заказать</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ЖЕСТКИЙ БЛОК УСЛОВИЙ ПРОКАТА -->
+        <h2 class="section-title">Условия проката</h2>
+        <div class="grid-terms">
+            <div class="term-item">
+                <h4>🔹 Правила оформления</h4>
+                <p>Строго от 18 лет. Заключаем официальный договор проката. Потребуется оригинал паспорта гражданина РБ для сверки данных.</p>
+            </div>
